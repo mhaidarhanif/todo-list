@@ -1,4 +1,4 @@
-import { Button } from "./components/button";
+import { ButtonSmall } from "./components/button";
 
 const tasks = [
   {
@@ -59,17 +59,26 @@ const tasks = [
 
 export function App() {
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className="p-4 space-y-10">
+      <h1 className="text-3xl">Todo List</h1>
 
-      <ul>
+      <ul className="space-y-8">
         {tasks.map((task) => {
           return (
             <li key={task.id}>
-              <h2>{task.title}</h2>
-              <p>{task.completed ? "Completed" : "Incomplete"}</p>
-              <p>Date Time: {task.date.toLocaleString()}</p>
-              <Button>Delete</Button>
+              <h2 className="text-xl font-bold">{task.title}</h2>
+              <p className="font-bold">
+                {task.completed ? (
+                  <span className="text-green-500">🟢 Completed</span>
+                ) : (
+                  <span className="text-yellow-500">🟡 Incomplete</span>
+                )}
+              </p>
+              <p>
+                <span className="font-bold">Date Time: </span>
+                <span>{task.date.toLocaleString()}</span>
+              </p>
+              <ButtonSmall>Delete</ButtonSmall>
             </li>
           );
         })}
