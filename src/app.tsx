@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, ButtonSmall } from "./components/button";
-import { ButtonCounter } from "./components/button-counter";
 
 const initialTasks = [
   {
