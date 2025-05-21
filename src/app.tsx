@@ -59,6 +59,10 @@ const tasks = [
 ];
 
 export function App() {
+  function removeTask() {
+    console.log("Task removed");
+  }
+
   return (
     <div className="p-4 space-y-10">
       <h1 className="text-3xl">Todo List</h1>
@@ -81,7 +85,8 @@ export function App() {
                 <span className="font-bold">Date Time: </span>
                 <span>{task.date.toLocaleString()}</span>
               </p>
-              <ButtonSmall>Delete</ButtonSmall>
+
+              <ButtonSmall onClick={removeTask}>Delete</ButtonSmall>
             </li>
           );
         })}
