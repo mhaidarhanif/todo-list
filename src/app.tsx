@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ButtonSmall } from "./components/button";
+import { Button, ButtonSmall } from "./components/button";
 import { ButtonCounter } from "./components/button-counter";
 
 const initialTasks = [
@@ -62,6 +62,17 @@ const initialTasks = [
 export function App() {
   const [tasks, setTasks] = useState(initialTasks);
 
+  function addTask() {
+    const newTask = {
+      id: tasks[tasks.length - 1].id + 1,
+      title: "Example Task",
+      completed: false,
+      date: new Date(),
+    };
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
+  }
+
   function removeTask(id: number) {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
@@ -71,7 +82,7 @@ export function App() {
     <div className="p-4 space-y-10">
       <h1 className="text-3xl">Todo List</h1>
 
-      <ButtonCounter />
+      <Button onClick={addTask}>Add New Task</Button>
 
       <ul className="space-y-8">
         {tasks.map((task) => {
