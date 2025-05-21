@@ -1,4 +1,5 @@
 import { ButtonSmall } from "./components/button";
+import { ButtonCounter } from "./components/button-counter";
 
 const tasks = [
   {
@@ -61,6 +62,8 @@ export function App() {
   return (
     <div className="p-4 space-y-10">
       <h1 className="text-3xl">Todo List</h1>
+
+      <ButtonCounter />
 
       <ul className="space-y-8">
         {tasks.map((task) => {
