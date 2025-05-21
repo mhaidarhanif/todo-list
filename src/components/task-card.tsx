@@ -9,7 +9,7 @@ export function TaskCard({
   removeTask: (id: number) => void;
 }) {
   return (
-    <div key={task.id}>
+    <div>
       <h2 className="text-xl font-bold">{task.title}</h2>
       <p className="font-bold">
         {task.completed ? (
