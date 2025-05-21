@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Button, ButtonSmall } from "./components/button";
+import { Button } from "./components/button";
+import type { Task } from "./modules/task/type";
+import { TaskCard } from "./components/task-card";
 
-const initialTasks = [
+const initialTasks: Task[] = [
   {
     id: 1,
     title: "Breakfast",
@@ -87,22 +89,7 @@ export function App() {
         {tasks.map((task) => {
           return (
             <li key={task.id}>
-              <h2 className="text-xl font-bold">{task.title}</h2>
-              <p className="font-bold">
-                {task.completed ? (
-                  <span className="text-green-500">🟢 Completed</span>
-                ) : (
-                  <span className="text-yellow-500">🟡 Incomplete</span>
-                )}
-              </p>
-              <p>
-                <span className="font-bold">Date Time: </span>
-                <span>{task.date.toLocaleString()}</span>
-              </p>
-
-              <ButtonSmall onClick={() => removeTask(task.id)}>
-                Delete
-              </ButtonSmall>
+              <TaskCard task={task} removeTask={removeTask} />
             </li>
           );
         })}
