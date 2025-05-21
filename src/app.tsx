@@ -62,8 +62,9 @@ const initialTasks = [
 export function App() {
   const [tasks, setTasks] = useState(initialTasks);
 
-  function removeTask() {
-    console.log("Task removed");
+  function removeTask(id: number) {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
   }
 
   return (
@@ -89,7 +90,9 @@ export function App() {
                 <span>{task.date.toLocaleString()}</span>
               </p>
 
-              <ButtonSmall onClick={removeTask}>Delete</ButtonSmall>
+              <ButtonSmall onClick={() => removeTask(task.id)}>
+                Delete
+              </ButtonSmall>
             </li>
           );
         })}
