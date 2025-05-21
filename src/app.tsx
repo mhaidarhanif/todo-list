@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { ButtonSmall } from "./components/button";
 import { ButtonCounter } from "./components/button-counter";
 
-const tasks = [
+const initialTasks = [
   {
     id: 1,
     title: "Breakfast",
@@ -59,6 +60,8 @@ const tasks = [
 ];
 
 export function App() {
+  const [tasks, setTasks] = useState(initialTasks);
+
   function removeTask() {
     console.log("Task removed");
   }
