@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Task } from "./modules/task/type";
 import { TaskCard } from "./components/task-card";
+import { Button } from "./components/button";
 
 const initialTasks: Task[] = [
   {
@@ -99,9 +100,9 @@ export function App() {
           placeholder="Task title"
           className="p-2 border"
         />
-        <button type="submit" className="p-2 bg-blue-300">
+        <Button type="submit" className="p-2 bg-blue-300">
           Add Task
-        </button>
+        </Button>
       </form>
 
       <ul className="space-y-8">
