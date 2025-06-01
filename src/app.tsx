@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "./components/button";
 import type { Task } from "./modules/task/type";
 import { TaskCard } from "./components/task-card";
 
@@ -63,14 +62,18 @@ const initialTasks: Task[] = [
 export function App() {
   const [tasks, setTasks] = useState(initialTasks);
 
-  function addTask() {
+  function addTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
     const newTask = {
       id: tasks[tasks.length - 1].id + 1,
       title: "Example Task",
       completed: false,
       date: new Date(),
     };
+
     const updatedTasks = [...tasks, newTask];
+
     setTasks(updatedTasks);
   }
 
@@ -83,7 +86,19 @@ export function App() {
     <div className="p-4 space-y-10">
       <h1 className="text-3xl">Todo List</h1>
 
-      <Button onClick={addTask}>Add New Task</Button>
+      <form onSubmit={addTask} method="post">
+        <label htmlFor="title">Task title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Task title"
+          className="p-2 border"
+        />
+        <button type="submit" className="p-2 bg-blue-300">
+          Add Task
+        </button>
+      </form>
 
       <ul className="space-y-8">
         {tasks.map((task) => {
