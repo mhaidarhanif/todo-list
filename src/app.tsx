@@ -65,9 +65,13 @@ export function App() {
   function addTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    const formData = new FormData(event.currentTarget);
+
+    const title = String(formData.get("title"));
+
     const newTask = {
       id: tasks[tasks.length - 1].id + 1,
-      title: "Example Task",
+      title: title,
       completed: false,
       date: new Date(),
     };
