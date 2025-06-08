@@ -5,6 +5,7 @@ import "./index.css";
 import { HomeRoute } from "./routes/home";
 import { AboutRoute } from "./routes/about";
 import { TaskDetailsRoute } from "./routes/task-details";
+import { CounterRoute } from "./routes/counter";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
@@ -19,6 +20,9 @@ function App() {
           <li>
             <Link to="/about">About</Link>
           </li>
+          <li>
+            <Link to="/counter">Counter</Link>
+          </li>
         </ul>
       </nav>
 
@@ -26,6 +30,7 @@ function App() {
         <Route path="/" element={<HomeRoute />} />
         <Route path="/about" element={<AboutRoute />} />
         <Route path="/tasks/:taskId" element={<TaskDetailsRoute />} />
+        <Route path="/counter" element={<CounterRoute />} />
       </Routes>
     </BrowserRouter>
   );
